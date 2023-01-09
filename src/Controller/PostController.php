@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PostController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
+    #[Route('/', name: 'app_home', methods:'GET')]
     public function home(PostRepository $postRepo): Response
     {
         $postData = $postRepo->findAll();
@@ -19,7 +19,7 @@ class PostController extends AbstractController
         ]);
     }
 
-    #[Route('/post/show/{id<[0-9]+>}slug}', name: 'app_show')]
+    #[Route('/post/show/{id<[0-9]+>}slug}', name: 'app_show',methods:'GET')]
     public function show(Post $post, PostRepository $postRepo): Response
     {
 
