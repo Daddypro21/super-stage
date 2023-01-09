@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+{% if  posts != null %}
+  <div class="row">
+  {% for post in posts %}
+  <div class="col-md-4 col-sm-12">
+  <div class="card mt-5" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="">
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.description}}</p>
+    <p class="text-muted"><small> Créé le {{post.createdAt | date }} | {{post.user.name}}</small></p>
+    <a href="{{ path('app_show', {id:post.id, slug:post.newslug})}}" class="btn btn-primary">voir plus</a>
+  </div>
+</div>
+</div>
+    {% endfor %}
+</div>
+{% else %}
+
+<p class="text-center"> Pas de post </p>
+{% endif %}
+</div>
+{% endblock %}

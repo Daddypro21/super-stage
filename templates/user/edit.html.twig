@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% if app.user.adminConfirm != null %}
+{% if app.user.isVerified != null %}
+<div class="container mt-5">
+ <h3>Editer </h3>
+{# {% if app.user.isVerified %} #}
+{{ form_start(form)}}
+
+    {{form_widget(form)}}
+    <button type="submit"  class="btn btn-primary mt-3" >Editer</button>
+    {{ form_end(form)}}
+
+
+{# <h3>Votre compte doit être activé pour créer un paper </h3> #}
+{# {% endif %} #}
+</div>
+{% else %}
+<p class="text-center mt-5 mb-5 bg-secondary container pt-5 pb-5" >Allez dans votre boite email et activez votre compte </p>
+{% endif %}
+{% else %}
+<p class="text-center mt-5 mb-5 bg-secondary container pt-5 pb-5" > Un administrateur va bientôt confirmer votre compte</p>
+{% endif %}
+{% endblock %}

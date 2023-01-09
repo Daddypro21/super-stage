@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Show post{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+{% if  post is not null %}
+
+
+    <div class="card mt-5" style="width:50;">
+  <img class="card-img-top" src="..." alt="">
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.description}}</p>
+
+    <p class="text-muted"><small> Créé le {{post.createdAt | date }} | {{post.user.name}}</small></p>
+  </div>
+</div>
+
+{% else %}
+
+<p class="text-center"> Ce post n'existe pas </p>
+{% endif %}
+</div>
+{% endblock %}
